@@ -2,6 +2,7 @@ package com.example.navadroid.androidimplicitintent;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.AlarmClock;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,16 +39,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.btn_intent_2:
-                // TODO: ???
+                // TODO: Call
+                intent.setAction(Intent.ACTION_CALL);
+                intent.setData(Uri.parse("tel:0835816813" ));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_3:
-                // TODO: ???
+                // TODO: Open URL in browser
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https:youtube.com/watch?v=KTCW-IJgjFc"));
+                startActivity(intent);
                 break;
             case R.id.btn_intent_4:
-                // TODO: ???
+                // TODO: Alam Clock
+                 intent.setAction(AlarmClock.ACTION_SET_ALARM);
+                 intent.putExtra(AlarmClock.EXTRA_MESSAGE, "EIEI NAJA")
+                        .putExtra(AlarmClock.EXTRA_HOUR, 22)
+                        .putExtra(AlarmClock.EXTRA_MINUTES, 30);
+                startActivity(intent);
                 break;
             case R.id.btn_intent_5:
-                // TODO: ???
+                // TODO: Camera
+                intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(intent);
                 break;
 
         }
